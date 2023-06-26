@@ -1,0 +1,303 @@
+<section class="q-form">
+  <div class="form1">
+    <div>
+      <button class="button button4">Manage Template &#9881;</button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="submitForm()" #questionForm="ngForm">
+    <h2>Question Template</h2>
+    <div>
+      <button class="button button-red">Cancel &times;</button>
+      <button class="button button-green">Create Template &plus;</button>
+    </div>
+    <br />
+
+    <div class="notification-area">
+      <!-- Notification messages will be displayed here -->
+    </div>
+    <br />
+
+    <br />
+    <h1>Properties</h1>
+    <br />
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <div>
+        <ul>
+          <input
+            type="radio"
+            name="status"
+            value="In Development"
+            required
+            [(ngModel)]="questionFormValue.status"
+          />
+          <span id="option1">In Development</span>
+          <input
+            type="radio"
+            name="status"
+            value="Active"
+            required
+            [(ngModel)]="questionFormValue.status"
+          />
+          <span id="option2">Active</span>
+          <input
+            type="radio"
+            name="status"
+            value="Hidden"
+            required
+            [(ngModel)]="questionFormValue.status"
+          />
+          <span id="option3">Hidden</span>
+        </ul>
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="subject">Select Subject</label>
+      <select
+        id="subject"
+        name="subject"
+        required
+        [(ngModel)]="questionFormValue.subject"
+      >
+        <option value="Mathematics">Mathematics</option>
+        <option value="English A">English A</option>
+        <option value="English B">English B</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <br /><br />
+
+    <div class="form-group">
+      <label for="templateName">Template Name</label>
+      <textarea
+        id="templateName"
+        name="name"
+        rows="1"
+        cols="10"
+        required
+        [(ngModel)]="questionFormValue.name"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="templateDescription">Template Description</label>
+      <textarea
+        id="templateDescription"
+        name="description"
+        rows="5"
+        cols="30"
+        required
+        [(ngModel)]="questionFormValue.description"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="csecSection">CSEC Section</label>
+      <select
+        id="csecSection"
+        name="cesc_section"
+        required
+        [(ngModel)]="questionFormValue.csec_section"
+      >
+        <option value="Fractions">Fractions</option>
+        <option value="Section 2">Section 2</option>
+        <option value="Section 3">Section 3</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+
+    <br /><br />
+
+    <div class="form-group">
+      <label for="objective">Objective</label>
+      <select
+        id="objective"
+        name="objectives"
+        required
+        [(ngModel)]="questionFormValue.objectives"
+      >
+        <option value="Objective 1">Objective 1</option>
+        <option value="Objective 2">Objective 2</option>
+        <option value="Objective 3">Objective 3</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <br /><br />
+
+    <div class="form-group">
+      <label for="Question Format">Question Format</label>
+      <div>
+        <ul>
+          <input
+            type="radio"
+            name="format"
+            value="Multiple Choice"
+            [(ngModel)]="questionFormValue.format"
+          />
+          <span id="option1">Multiple Choice</span>
+          <input
+            type="radio"
+            name="format"
+            value="Short Format"
+            [(ngModel)]="questionFormValue.format"
+          />
+          <span id="option2">Short Format</span>
+          <!-- <input type="radio" name="format" value="Long Format" [(ngModel)]="questionFormValue.format" /> -->
+          <!-- <span id="option3">Long Format</span> -->
+        </ul>
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="QuestionType">Question Type</label>
+      <div>
+        <ul>
+          <input
+            type="radio"
+            name="type"
+            value="Type 1: Single Line Solution"
+            [(ngModel)]="questionFormValue.type"
+          />
+          <span id="option1">Type 1: Single Line Solution</span>
+          <!-- <input type="radio" name="type" value="Type 2: Static" [(ngModel)]="questionFormValue.type" /> -->
+          <!-- <span id="option2">Type 2: Static</span> -->
+          <!-- <input type="radio" name="type" value="Type 3: Hybrid" [(ngModel)]="questionFormValue.type" /> -->
+          <!-- <span id="option3">Type 3: Hybrid</span> -->
+        </ul>
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="QuestionDifficulty">Question Difficulty</label>
+      <select
+        id="QuestionDifficulty"
+        name="difficulty"
+        required
+        [(ngModel)]="questionFormValue.difficulty"
+      >
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <br /><br />
+
+    <!-- Part 2 HTML -->
+
+    <hr />
+    <br />
+    <br />
+    <h1>Question Details</h1>
+    <div class="notification-area1">
+      <!-- Notification messages will be displayed here -->
+      Solution should be a single line expression or value.
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="form-group">
+      <label for="QuestionTextTemplate">Question Text Template</label>
+      <textarea
+        id="QuestionTextTemplate"
+        name="text"
+        rows="5"
+        cols="30"
+        [(ngModel)]="questionFormValue.text"
+      ></textarea>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="form-group">
+      <label for="image">Question Image(s)</label>
+      <input type="file" id="image" name="image" accept="image/*" />
+      <button type="submit">Upload</button>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="form-group">
+      <label for="developerNote">Developer Note</label>
+      <textarea
+        id="developerNote"
+        name="DeveloperNote"
+        rows="5"
+        cols="30"
+        [(ngModel)]="questionFormValue.developerNote"
+      ></textarea>
+    </div>
+    <br />
+
+    <!-- Part 3 HTML -->
+    <hr />
+    <br />
+    <br />
+    <h1>Solutions & Hint</h1>
+
+    <br />
+    <br />
+
+    <div class="form-group">
+      <label for="QuestionFormulaGroup">Question Formula Group</label>
+      <select
+        id="QuestionFormulaGroup"
+        name="formula"
+        [(ngModel)]="questionFormValue.formula"
+      >
+        <option value="Algebra">Algebra</option>
+        <option value="Geometry">Geometry</option>
+        <option value="trigonometry">trigonometry</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <br /><br />
+
+    <div class="form-group">
+      <label for="QuestionHint">Question Hint</label>
+      <textarea
+        id="QuestionHint"
+        name="hint"
+        rows="5"
+        cols="30"
+        [(ngModel)]="questionFormValue.hint"
+      ></textarea>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="video">Video Solution</label>
+      <input
+        type="file"
+        id="video"
+        name="video"
+        accept="video/*"
+        [(ngModel)]="questionFormValue.video"
+      />
+      <button type="submit">Upload</button>
+    </div>
+
+    <div class="form-group">
+      <label for="written_solution">Text / Written Solution</label>
+      <input
+        type="file"
+        id="image"
+        name="written_solution"
+        accept="image/*"
+        [(ngModel)]="questionFormValue.written_solution"
+      />
+      <button type="submit">Upload</button>
+    </div>
+
+    <input type="submit" value="Submit" />
+  </form>
+</section>
