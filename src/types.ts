@@ -9,11 +9,13 @@ export interface QuestionTemplate {
   text: string;
   type: string;
   difficulty: string;
-  images: string[];
+  image: File | null;
   options: string[];
   formula: string;
   hint: string;
   video: string;
   written_solution: string;
   developerNote: string;
+
+  [key: string]: any; // This is the index signature
 }

@@ -5,7 +5,11 @@
     </div>
   </div>
 
-  <form (ngSubmit)="submitForm()" #questionForm="ngForm">
+  <form
+    (ngSubmit)="submitForm()"
+    #questionForm="ngForm"
+    enctype="multipart/form-data"
+  >
     <h2>Question Template</h2>
     <div>
       <button class="button button-red">Cancel &times;</button>
@@ -219,7 +223,13 @@
 
     <div class="form-group">
       <label for="image">Question Image(s)</label>
-      <input type="file" id="image" name="image" accept="image/*" />
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        (change)="onImageSelected($event)"
+      />
       <button type="submit">Upload</button>
     </div>
 
@@ -277,10 +287,9 @@
     <div class="form-group">
       <label for="video">Video Solution</label>
       <input
-        type="file"
+        type="text"
         id="video"
         name="video"
-        accept="video/*"
         [(ngModel)]="questionFormValue.video"
       />
       <button type="submit">Upload</button>
@@ -292,6 +301,7 @@
         type="file"
         id="image"
         name="written_solution"
+        (change)="onWrittenSolutionSelected($event)"
         accept="image/*"
         [(ngModel)]="questionFormValue.written_solution"
       />
