@@ -11,7 +11,7 @@ export class QuestionTemplateService {
 
   submitFormData(data: QuestionTemplate): Observable<QuestionTemplate> {
     return this.http.post<QuestionTemplate>(
-      'http://localhost:9000/add_question_template',
+      'https://pappilon.onrender.com/add_question_template',
       data
     );
   }
